@@ -42,7 +42,7 @@ videos.items.forEach(function(video){
 <% }else{ %>
 <a></a>
 <% } %>
-<% if(page !== max_page){ %>
+<% if(page < max_page){ %>
 <% var next_page = page + 1; %>
 <a class="vui-btn-navi" href="/cast/<%= castid %>/<%= castName %>?sort=<%= sort %>&page=<%= Number(page) + 1 %>">
 次のページ

@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var router = express.Router();
-var request = require('request');
 const marked = require("marked");
 const yaml = require('js-yaml');
 const fs = require('fs');

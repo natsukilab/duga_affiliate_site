@@ -1,26 +1,36 @@
 var express = require('express');
 var path = require('path');
 var router = express.Router();
-var request = require('request');
 const yaml = require('js-yaml');
 const fs = require('fs');
 const serverConfPath = path.join(process.cwd(), 'config', 'server.yml');
 const serverData = yaml.load(fs.readFileSync(serverConfPath, 'utf-8'));
 const appConfPath = path.join(process.cwd(), 'config', 'default.yml');
 const conf = yaml.load(fs.readFileSync(appConfPath, 'utf-8'));
+//DUGA動画検索
+var DugaSearch = require("duga-search");
+var duga_api = {
+appid: conf.api.appid,
+agentid: conf.api.agentid,
+bannerid: conf.api.bannerid,
+}
+var duga = new DugaSearch(duga_api);
 
 /* GET home page. */
 router.get('/:id', function(req, res, next) {
 var date = new Date();
 var datetime = date.getTime();
-var options = {
-url: 'http://affapi.duga.jp/search?version=1.1&appid='+conf.api.appid+'&agentid='+conf.api.agentid+'&bannerid=01&format=json&hits=40&adult=1&sort=release&keyword='+req.params.id,
-method: 'GET',
-json:true
+var duga_option1 = {
+version: '1.2',
+format: 'json',
+hits: 40,
+offset: 0,
+adult: 1,
+keyword: req.params.id,
 }
-request(options, function (error, response, body) {
+duga.search(duga_option1,function(data){
 res.render('watch',{
-video:body,
+video:data,
 datetime:datetime,
 query:"",
 conf:conf,

@@ -9,7 +9,6 @@ const serverConfPath = path.join(process.cwd(), 'config', 'server.yml');
 const serverData = yaml.load(fs.readFileSync(serverConfPath, 'utf-8'));
 const appConfPath = path.join(process.cwd(), 'config', 'default.yml');
 const conf = yaml.load(fs.readFileSync(appConfPath, 'utf-8'));
-
 var indexRouter = require('./routes/index');
 var categoryRouter = require('./routes/category');
 var castRouter = require('./routes/cast');
