@@ -1,6 +1,6 @@
 app:
     url: http://localhost/
-    name: "DUGA AFFILIATE SITE"
+    name: DUGA AFFILIATE SITE
 #DUGAウェブサービスのAPIアクセス情報
 api:
     appid: 
