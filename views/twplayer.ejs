@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover">
+<%- include("./commons/favicons") %>
+<% if(conf.app.name === null){ %>
+<title><%= video.items[0].item.title %> - <%= serverData.app.name %></title>
+<% }else{ %>
+<title><%= video.items[0].item.title %> - <%= conf.app.name %></title>
+<% } %>
+<script src="/javascripts/jquery/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/lightbox2/js/lightbox.min.js"></script>
+<link href="/lightbox2/css/lightbox.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="/javascripts/plyr/plyr.js"></script>
+<link rel="stylesheet" href="/stylesheets/plyr/plyr.css" />
+<style>
+html,body,.vui-player{
+width:100%;
+height:100%;
+padding:0px;
+margin:0px;
+}
+.vui-player{
+position: relative;
+width: 100%;
+height:100%;
+background-color:#000;
+padding:0px;
+margin:0px;
+}
+.vui-player #player,.vui-player .plyr,.vui-player .plyr .plyr__video-wrapper,.vui-nicoplayer{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color:#000;
+}
+</style>
+</head>
+<body>
+<div class="vui-player">
+<video id="player" playsinline controls style="--plyr-color-main:#e95295;" poster="<% if(video.items[0].item.jacketimage === undefined){ %><%= video.items[0].item.posterimage[2].large %><% }else{ %><%= video.items[0].item.jacketimage[2].large %><% } %>">
+<source src="<%= video.items[0].item.samplemovie[0].midium.movie.replace('http://','//'); %>" type="video/mp4" />
+</video>
+</div>
+<script>
+const player = new Plyr('#player');
+</script>
+</body>
+</html>

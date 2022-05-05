@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover">
+<%- include("../commons/favicons") %>
+<title><%= serverData.app.name %>とは？ - <%= serverData.app.name %></title>
+<script src="/javascripts/jquery/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/lightbox2/js/lightbox.min.js"></script>
+<link href="/lightbox2/css/lightbox.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/small.css?date=<%= datetime %>" media="screen and (max-width:874px)">
+<link rel="stylesheet" href="/stylesheets/medium.css?date=<%= datetime %>" media="screen and (min-width:875px) and (max-width:1349px)">
+<link rel="stylesheet" href="/stylesheets/wide.css?date=<%= datetime %>" media="screen and (min-width:1350px)">
+</head>
+<body>
+<%- include("../commons/header",{path:"about",title:serverData.app.name+'とは？'}) %>
+<%- include("../commons/sidebar",{path:"about"}) %>
+<div class="vui-about-main">
+<div class="vui-about-area">
+<div class="box box1">
+<%- about %>
+</div>
+</div>
+</div>
+<%- include('../commons/footer') %>
+<script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('/sw.js').then(function(registration) {
+console.log('ServiceWorker registration successful with scope: ', registration.scope);
+}).catch(function(err) {
+console.log('ServiceWorker registration failed: ', err);
+});
+}
+</script>
+</body>
+</html>

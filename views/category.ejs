@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover">
+<%- include("./commons/favicons") %>
+<title><%= categoryName %> - <%= serverData.app.name %></title>
+<script src="/javascripts/jquery/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/small.css" media="screen and (max-width:874px)">
+<link rel="stylesheet" href="/stylesheets/medium.css" media="screen and (min-width:875px) and (max-width:1349px)">
+<link rel="stylesheet" href="/stylesheets/wide.css" media="screen and (min-width:1350px)">
+<!--twitter-->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@natsukilab">
+<meta name="twitter:title" content="<%= conf.app.name %>">
+<meta name="twitter:description" content="お気に入りのエッチな動画作品を探しませんか？">
+<meta name="twitter:image" content="<%= conf.app.url %>images/ogp.jpg">
+</head>
+<body>
+<%- include("./commons/header",{path:"category/"+categoryid,title:categoryName}) %>
+<%- include("./commons/sidebar",{path:"category/"+categoryid}) %>
+<div class="vui-main">
+<%- include("./commons/sort",{path:"category"}) %>
+<div class="vui-videos">
+<%
+videos.items.forEach(function(video){
+%>
+<a href="/watch/<%= video.item.productid %>" class="vui-video-image">
+<img src="<%= video.item.posterimage[2].large %>">
+<span class="vui-video-image-title"><%= video.item.title %></span>
+</a>
+<% }) %>
+</div>
+<div class="vui-pagination">
+<% if(page > 1){ %>
+<a class="vui-btn-navi" href="/category/<%= categoryid %>/?sort=<%= sort %>&page=<%= Number(page) - 1 %>">
+<span class="material-icons left-icon">arrow_back_ios</span>
+前のページ
+</a>
+<% }else{ %>
+<a></a>
+<% } %>
+<% if(page !== max_page){ %>
+<% var next_page = page + 1; %>
+<a class="vui-btn-navi" href="/category/<%= categoryid %>/?sort=<%= sort %>&page=<%= Number(page) + 1 %>">
+次のページ
+<span class="material-icons right-icon">arrow_forward_ios</span>
+</a>
+<% }else{ %>
+<a></a>
+<% } %>
+</div>
+<div class="vui-divider"></div>
+<div class="ad300 vui-wide-display-none vui-medium-display-none">
+<ins class="widget-banner"></ins><script class="widget-banner-script" src="https://widget-view.dmm.co.jp/js/banner_placement.js?affiliate_id=utamita-007&banner_id=85_300_250"></script>
+</div>
+<div class="ad728 vui-small-display-none">
+<ins class="widget-banner"></ins><script class="widget-banner-script" src="https://widget-view.dmm.co.jp/js/banner_placement.js?affiliate_id=utamita-007&banner_id=72_728_90"></script>
+</div>
+</div>
+<%- include("./commons/footer",{path:"category/"+categoryid}) %>
+<script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('/sw.js').then(function(registration) {
+console.log('ServiceWorker registration successful with scope: ', registration.scope);
+}).catch(function(err) {
+console.log('ServiceWorker registration failed: ', err);
+});
+}
+</script>
+</body>
+</html>

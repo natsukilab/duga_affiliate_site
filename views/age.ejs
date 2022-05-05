@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover">
+<%- include("./commons/favicons") %>
+<title>ホーム - <%= serverData.app.name %></title>
+<script src="/javascripts/jquery/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/small.css" media="screen and (max-width:874px)">
+<link rel="stylesheet" href="/stylesheets/medium.css" media="screen and (min-width:875px) and (max-width:1349px)">
+<link rel="stylesheet" href="/stylesheets/wide.css" media="screen and (min-width:1350px)">
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<!--twitter-->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@natsukilab">
+<meta name="twitter:title" content="<%= conf.app.name %>">
+<meta name="twitter:description" content="お気に入りのエッチな動画作品を探しませんか？">
+<meta name="twitter:image" content="<%= conf.app.url %>images/ogp.jpg">
+<style>
+body{
+background-color:#333;
+color:#fff;
+}
+.vui-age-main{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+width:100%;
+height:100%;
+padding:0px;
+margin:0px;
+}
+.vui-age-main h1{
+color:#fff;
+line-height:2em;
+padding:0px;
+margin:0px;
+}
+.vui-age-main p{
+text-align:center;
+color:#fff;
+line-height:2em;
+padding:0px;
+margin:0px;
+}
+/*button*/
+.vui-button{
+display:inline-flex;
+justify-content:center;
+align-items:center;
+background-color:var(--main-color);
+height:42px;
+min-width:10em;
+color:#fff;
+cursor: pointer;
+border:0px;
+border-radius:8px;
+padding:0px;
+margin:0px;
+box-sizing:border-box;
+}
+.vui-button .material-icons{
+margin-right:5px;
+}
+.vui-button.mt{
+margin-top:15px;
+}
+/*grid*/
+.vui-grid{
+position:relative;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+width:100%;
+padding:0px;
+margin:0px;
+}
+.vui-grid .comments-column{
+position:absolute;
+top:0;
+right:0;
+background-color:#fff;
+color:#333;
+height:100%;
+padding:0px;
+margin:0px;
+border:1px #333 solid;
+box-sizing:border-box;
+}
+.vui-grid .one-column{
+width:100%;
+}
+.vui-grid .two-column{
+width:calc((((100% - 220px) / 12) * 2) + 20px);
+}
+.vui-grid .three-column{
+width:calc((((100% - 220px) / 12) * 3) + 40px);
+}
+.vui-grid .four-column{
+width:calc((((100% - 220px) / 12) * 4) + 60px);
+}
+.vui-grid .five-column{
+width:calc((((100% - 220px) / 12) * 5) + 80px);
+}
+.vui-grid .six-column{
+width:calc((((100% - 220px) / 12) * 6) + 100px);
+}
+.vui-grid .seven-column{
+width:calc((((100% - 220px) / 12) * 7) + 120px);
+}
+.vui-grid .eight-column{
+width:calc((((100% - 220px) / 12) * 8) + 140px);
+}
+.vui-grid .nine-column{
+width:calc((((100% - 220px) / 12) * 9) + 160px);
+}
+.vui-grid .ten-column{
+width:calc((((100% - 220px) / 12) * 10) + 180px);
+}
+.vui-grid .eleven-column{
+width:calc((((100% - 220px) / 12) * 11) + 200px);
+}
+.vui-grid .twelve-column{
+width:calc((((100% - 220px) / 12) * 12) + 220px);
+}
+.fluid{
+width: 100%!important;
+}
+.mt{
+margin-top:15px!important;
+}
+</style>
+</head>
+<body>
+<div class="vui-age-main">
+<h1>年齢の確認</h1>
+<p>
+当サイトはアダルトコンテンツを含んでいます。<br/>
+あなたは18歳以上ですか？<br/>
+（This site contains adult content. Are you above 18 years old?）
+</p>
+<div class="vui-grid mt" style="width:300px;">
+<div class="six-column">
+<button class="vui-button fluid age_btn" data-age="yes">YES</button>
+</div>
+<div class="six-column">
+<button class="vui-button fluid age_btn" data-age="no">NO</button>
+</div>
+</div>
+<p class="mt">
+&copy; 2022 おっぱい動画
+</p>
+</div>
+<script>
+$(".age_btn").click(function(){
+var age = $(this).data("age");
+if(age == "yes"){
+Cookies.set('agecheck', 'yes', {expires: 1/4});
+location.reload();
+}else if(age == "no"){
+location.href="https://www.google.co.jp";
+}
+})
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('/sw.js').then(function(registration) {
+console.log('ServiceWorker registration successful with scope: ', registration.scope);
+}).catch(function(err) {
+console.log('ServiceWorker registration failed: ', err);
+});
+}
+</script>
+</body>
+</html>

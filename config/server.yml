@@ -1,0 +1,48 @@
+#アプリケーション情報
+app:
+  name: DUGA AFFILIATE SITE
+  version: 0.2.2
+#DUGAカテゴリ情報
+category:
+  - id: '01'
+    name: 素人
+    moji: 素
+  - id: '100025'
+    name: ギャル
+    moji: ギ
+  - id: '02'
+    name: 女優
+    moji: 女
+  - id: '03'
+    name: 盗撮
+    moji: 盗
+  - id: '09'
+    name: 女子校生
+    moji: 女
+  - id: '11'
+    name: レズ
+    moji: レ
+  - id: '1301'
+    name: おっぱい
+    moji: お
+  - id: '21'
+    name: オナニー
+    moji: オ
+  - id: '22'
+    name: 外国人
+    moji: 外
+  - id: '100032'
+    name: ロリ
+    moji: ロ
+categoryName:
+  '01': 素人
+  '100025': ギャル
+  '02': 女優
+  '03': 盗撮
+  '09': 女子校生
+  '11': レズ
+  '1301': おっぱい
+  '21': オナニー
+  '22': 外国人
+  '100032': ロリ
+keywordNg: '-スカトロ -SM -熟女 -浣腸 -辱め -受難'

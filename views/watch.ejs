@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover">
+<%- include("./commons/favicons") %>
+<% if(conf.app.name === null){ %>
+<title><%= video.items[0].item.title %> - <%= serverData.app.name %></title>
+<% }else{ %>
+<title><%= video.items[0].item.title %> - <%= conf.app.name %></title>
+<% } %>
+<script src="/javascripts/jquery/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/lightbox2/js/lightbox.min.js"></script>
+<link href="/lightbox2/css/lightbox.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="/javascripts/plyr/plyr.js"></script>
+<link rel="stylesheet" href="/stylesheets/plyr/plyr.css" />
+<link rel="stylesheet" href="/stylesheets/small.css" media="screen and (max-width:874px)">
+<link rel="stylesheet" href="/stylesheets/medium.css" media="screen and (min-width:875px) and (max-width:1349px)">
+<link rel="stylesheet" href="/stylesheets/wide.css" media="screen and (min-width:1350px)">
+<!--tw-->
+<meta name = "twitter:card" content = "player" />
+<meta name = "twitter:title" content = "<%= video.items[0].item.title %> - <%= serverData.app.name %>" />
+<meta name = "twitter:site" content = "@natsukilab">
+<meta name = "twitter:description" content = "<%= video.items[0].item.caption %>" />
+<meta name = "twitter:player" content = "<%= conf.app.url %>player/<%= video.items[0].item.productid %>" />
+<meta name = "twitter:player:width" content = "640" />
+<meta name = "twitter:player:height" content = "360" />
+<meta name = "twitter:image" content = "<% if(video.items[0].item.jacketimage === undefined){ %><%= video.items[0].item.posterimage[2].large %><% }else{ %><%= video.items[0].item.jacketimage[2].large %><% } %>" />
+<!--tw-->
+<link rel="stylesheet" href="/social-icon/style.css">
+</head>
+<body>
+<%- include("./commons/header",{path:"watch",title:video.items[0].item.title}) %>
+<%- include("./commons/sidebar",{path:"watch"}) %>
+<div class="vui-watch-main">
+<div class="vui-player-grid">
+<div class="grid1">
+<% if(video.items[0].item.samplemovie !== undefined){ %>
+<div class="vui-player">
+<video id="player" playsinline controls style="--plyr-color-main:#e95295;" poster="<% if(video.items[0].item.jacketimage === undefined){ %><%= video.items[0].item.posterimage[2].large %><% }else{ %><%= video.items[0].item.jacketimage[2].large %><% } %>">
+<source src="<%= video.items[0].item.samplemovie[0].midium.movie.replace('http://','//'); %>" type="video/mp4" />
+</video>
+<div class="vui-player-ad">
+<div class="ad">
+<div class="box1">
+<img class="poster-image" src="<% if(video.items[0].item.jacketimage === undefined){ %><%= video.items[0].item.posterimage[2].large %><% }else{ %><%= video.items[0].item.jacketimage[2].large %><% } %>">
+</div>
+<div class="box2">
+<a class="ad-btn" href="<%= video.items[0].item.affiliateurl %>" target="_blank">
+<span class="material-icons">shopping_cart</span>
+この動画を購入する
+</a>
+<span class="ad-btn-desc">
+DUGAの購入ページへ移動します
+</span>
+</div>
+<div class="close-btn">
+<span class="material-icons">close</span>
+</div>
+</div>
+</div>
+</div>
+<% } %>
+</div>
+<div class="grid2">
+<h1 class="vui-player-title"><%= video.items[0].item.title %></h1>
+<div class="vui-social">
+<a href="https://twitter.com/share?text=<%= video.items[0].item.title %>&amp;url=<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button twitter">
+<span class="icon-twitter"></span>
+</a>
+<a href="https://social-plugins.line.me/lineit/share?url=<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button line">
+<span class="icon-line"></span>
+</a> 
+<a href="http://b.hatena.ne.jp/entry/<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button hatena">
+<span class="icon-hatenabookmark"></span>
+</a>
+</div>
+<div class="vui-player-description">
+<span class="title">
+<span class="material-icons">info</span>
+作品紹介
+</span>
+<%- video.items[0].item.caption.replace(/\n/g, '<br>' )%>
+</div>
+<div class="vui-thumbnails-box">
+<span class="title">
+<span class="material-icons">collections</span>
+ダイジェスト画像
+</span>
+<div class="vui-thumbnails">
+<% video.items[0].item.thumbnail.forEach(function(thumbnail){ %>
+<a class="thumbnail" href="<%= thumbnail.image.replace('noauth\/s','').replace('http://','//') %>" data-lightbox="image-1" data-title="<%= video.items[0].item.title %>">
+<img src="<%= thumbnail.image.replace('http://','//') %>">
+</a>
+<% }) %>
+</div>
+</div>
+<% if(video.items[0].item.performer !== undefined){ %>
+<div class="vui-cast-info">
+<span class="title">
+<span class="material-icons">collections</span>
+出演者情報
+</span>
+<div class="vui-cast">
+<% video.items[0].item.performer.forEach(function(cast){ %>
+<a class="cast" href="/cast/<%= cast.data.id %>/<%= cast.data.name %>"><%= cast.data.name %></a>
+<% }) %>
+</div>
+</div>
+<% } %>
+<div class="vui-divider"></div>
+<div class="vui-player-shopping">
+<a href="<%= video.items[0].item.affiliateurl %>" target="_blank" class="vui-player-shopping-btn">
+<span class="material-icons">shopping_cart</span>
+この動画を購入する
+</a>
+<span class="vui-player-shopping-desc">
+DUGAの購入ページへ移動します
+</span>
+</div>
+<div class="vui-divider"></div>
+<div class="ad300 vui-wide-display-none vui-medium-display-none">
+<ins class="widget-banner"></ins><script class="widget-banner-script" src="https://widget-view.dmm.co.jp/js/banner_placement.js?affiliate_id=utamita-007&banner_id=85_300_250"></script>
+</div>
+<div class="ad728 vui-small-display-none">
+<ins class="widget-banner"></ins><script class="widget-banner-script" src="https://widget-view.dmm.co.jp/js/banner_placement.js?affiliate_id=utamita-007&banner_id=85_728_90"></script>
+</div>
+</div>
+</div>
+</div>
+<%- include('./commons/footer') %>
+<script>
+const player = new Plyr('#player');
+player.on("ended",() => {
+$(".vui-player-ad").fadeIn().css('display','flex');
+})
+$(".vui-player-ad .ad .close-btn").click(() => {
+$(".vui-player-ad").fadeOut();
+})
+</script>
+</body>
+</html>

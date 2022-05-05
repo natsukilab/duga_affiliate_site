@@ -1,0 +1,76 @@
+<div class="vui-sidebar">
+<div class="group">
+<a class="item<% if(path=="home"){ %> active<% } %>" href="/">
+<span class="material-icons vui-icon">home</span>
+ホーム
+</a>
+<a class="item<% if(path=="search"){ %> active<% } %>" href="/search">
+<span class="material-icons vui-icon">explore</span>
+動画検索
+</a>
+<div class="divider"></div>
+<% serverData.category.forEach((category) => { %>
+<a class="item<% if(path == 'category/'+category.id){ %> active<% } %>" href="/category/<%= category.id %>" title="<%= category.name %>">
+<div class="vui-icon">
+<span class="txt-icon"><%= category.moji %></span>
+</div>
+<span class="categoryName"><%= category.name %></span>
+</a>
+<% }) %>
+</div>
+<div class="divider"></div>
+<div class="group">
+<a class="item" href="https://erokawa.press" target="_blank" title="">
+<div class="vui-icon">
+<span class="txt-icon">ア</span>
+</div>
+<span class="categoryName">アイドル専門</span>
+</a>
+<a href="/about" class="item<% if(path=="about"){ %> active<% } %>">
+<span class="material-icons vui-icon">info</span>
+<%= serverData.app.name %>とは？
+</a>
+<div class="item">
+<span class="material-icons vui-icon">dns</span>
+Ver <%= serverData.app.version %>
+</div>
+<a class="item link" href="https://click.duga.jp/aff/api/27552-01" target="_blank">
+<img src="https://ad.duga.jp/img/webservice_142.gif" alt="DUGAウェブサービス" width="142" height="18" border="0">
+</a>
+</div>
+</div>
+<div class="vui-sidebar-back"></div>
+<script>
+//sidebar
+var sidebar_status = false;
+$(".menu-btn").click(() => {
+switch(sidebar_status){
+case false:
+sidebar_status = true;
+$(".menu-btn .material-icons").text("close");
+$(".vui-sidebar").animate({left:'0px'},500);
+$(".vui-sidebar-back").fadeIn();
+break;
+case true:
+sidebar_status = false;
+$(".menu-btn .material-icons").text("menu");
+$(".vui-sidebar").animate({left:'-250px'},500);
+$(".vui-sidebar-back").fadeOut();
+break;
+}
+})
+$(".vui-sidebar-back").click(() => {
+switch(sidebar_status){
+case false:
+sidebar_status = true;
+$(".vui-sidebar").animate({left:'0px'},500);
+$(".vui-sidebar-back").fadeIn();
+break;
+case true:
+sidebar_status = false;
+$(".vui-sidebar").animate({left:'-250px'},500);
+$(".vui-sidebar-back").fadeOut();
+break;
+}
+})
+</script>
