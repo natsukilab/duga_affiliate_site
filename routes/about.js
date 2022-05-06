@@ -22,7 +22,7 @@ process.exit(1);
 return;
 }
 // MarkdownファイルをHTML文字列に変換する
-var html = marked(file);
+var html = marked.parse(file);
 if(conf.app.name === null){
 html = html.replaceAll("{SITENAME}",serverData.app.name).replaceAll("{agentId}",conf.api.agentid).replaceAll("{bannerId}",conf.api.bannerid);
 }else{
