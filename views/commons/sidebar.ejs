@@ -28,7 +28,11 @@
 </a>
 <a href="/about" class="item<% if(path=="about"){ %> active<% } %>">
 <span class="material-icons vui-icon">info</span>
+<% if(conf.app.name === null){ %>
 <%= serverData.app.name %>とは？
+<% }else{ %>
+<%= conf.app.name %>とは？
+<% } %>
 </a>
 <div class="item">
 <span class="material-icons vui-icon">dns</span>

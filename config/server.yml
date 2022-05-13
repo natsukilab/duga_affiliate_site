@@ -1,7 +1,7 @@
 #アプリケーション情報
 app:
   name: DUGA AFFILIATE SITE
-  version: 0.2.4
+  version: 0.2.5
 #DUGAカテゴリ情報
 category:
   - id: '01'

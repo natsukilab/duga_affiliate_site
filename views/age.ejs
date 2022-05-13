@@ -5,7 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover">
 <%- include("./commons/favicons") %>
-<title>ホーム - <%= serverData.app.name %></title>
+<% if(conf.app.name === null){ %>
+<title>年齢確認 - <%= serverData.app.name %></title>
+<% }else{ %>
+<title>年齢確認 - <%= conf.app.name %></title>
+<% } %>
 <script src="/javascripts/jquery/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="/stylesheets/small.css" media="screen and (max-width:874px)">

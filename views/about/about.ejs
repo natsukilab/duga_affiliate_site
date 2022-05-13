@@ -5,7 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover">
 <%- include("../commons/favicons") %>
+<% if(conf.app.name === null){ %>
 <title><%= serverData.app.name %>とは？ - <%= serverData.app.name %></title>
+<% }else{ %>
+<title><%= serverData.app.name %>とは？ - <%= conf.app.name %></title>
+<% } %>
 <script src="/javascripts/jquery/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/lightbox2/js/lightbox.min.js"></script>
 <link href="/lightbox2/css/lightbox.min.css" rel="stylesheet">
