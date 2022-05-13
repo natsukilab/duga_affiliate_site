@@ -11,6 +11,7 @@ const appConfPath = path.join(process.cwd(), 'config', 'default.yml');
 const conf = yaml.load(fs.readFileSync(appConfPath, 'utf-8'));
 var indexRouter = require('./routes/index');
 var categoryRouter = require('./routes/category');
+var labelRouter = require('./routes/label');
 var castRouter = require('./routes/cast');
 var searchRouter = require('./routes/search');
 var watchRouter = require('./routes/watch');
@@ -36,6 +37,7 @@ app.use("/lightbox2", express.static(__dirname + "/node_modules/lightbox2/dist/"
 
 app.use('/', indexRouter);
 app.use('/category', categoryRouter);
+app.use('/label', labelRouter);
 app.use('/cast', castRouter);
 app.use('/search', searchRouter);
 app.use('/watch', watchRouter);

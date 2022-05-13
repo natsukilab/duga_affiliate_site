@@ -34,13 +34,14 @@ hits: 1,
 offset: 0,
 adult: 1,
 sort: sort,
-category: req.params.id,
+labelid: req.params.id,
 keyword: encodeURI(serverData.keywordNg),
 }
 duga.search(duga_option1,function(data){
 var hits = 40;
 // データの個数を入れる
 var count = data.count;
+var labelName = data.items[0].item.label[0].name;
 // データ個数 ÷ 1ページに表示するデータ数 (端数の切り上げ)
 var max_page = Math.ceil(count / hits);
 if(req.query.page !== undefined){
@@ -57,18 +58,18 @@ hits: 40,
 offset: offset,
 adult: 1,
 sort: sort,
-category: req.params.id,
+labelid: req.params.id,
 keyword: encodeURI(serverData.keywordNg),
 }
 duga.search(duga_option2,function(data2){
-res.render('category',
+res.render('label',
 {
 videos: data2,
 max_page: max_page,
 page:page,
 query:'',
-categoryid:req.params.id,
-categoryName:serverData.categoryName[req.params.id],
+labelid:req.params.id,
+labelName:labelName,
 datetime:datetime,
 sort:sort,
 conf:conf,

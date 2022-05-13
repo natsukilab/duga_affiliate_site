@@ -17,6 +17,8 @@ $("#sort").change(function(){
 location.href = "/?sort="+$("#sort").val();
 <% }else if(path == "category"){ %>
 location.href = "/category/<%= categoryid %>/?sort="+$("#sort").val();
+<% }else if(path == "label"){ %>
+location.href = "/label/<%= labelid %>/?sort="+$("#sort").val();
 <% }else if(path == "search"){ %>
 location.href = "/search?q=<%= query %>&sort="+$("#sort").val();
 <% } %>
