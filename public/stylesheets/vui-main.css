@@ -1,6 +1,7 @@
 :root {
 --main-color:#e95295;
 --disabled-color:#e9529580;
+--main-text-color:#333;
 }
 
 a{
@@ -192,7 +193,7 @@ border-width: 1px 2px;
 display:flex;
 justify-content:flex-start;
 align-items:center;
-color:#666;
+color:var(--main-text-color);
 height:50px;
 padding:0px 20px;
 margin:0px;
@@ -202,7 +203,7 @@ box-sizing:border-box;
 display:flex;
 justify-content:flex-start;
 align-items:center;
-color:#666;
+color:var(--main-text-color);
 height:50px;
 padding:0px 20px;
 margin:0px;
@@ -282,6 +283,9 @@ width:100%;
 padding:0px;
 margin:0px;
 vertical-align:bottom;
+}
+.vui-videos .vui-video-image .vui-video-image-title{
+color:var(--main-text-color);
 }
 
 /*vui-player-grid*/
@@ -392,7 +396,7 @@ display:flex;
 flex-direction:column;
 justify-content:flex-start;
 align-items:flex-start;
-color:#666;
+color:var(--main-text-color);
 border-radius:0px 8px 8px 8px;
 padding:0px 20px;
 margin:0px;
@@ -516,7 +520,7 @@ margin-right:10px;
 }
 .vui-player-shopping-desc{
 display:inline-block;
-color:#333;
+color:var(--main-text-color);
 font-size:12px;
 padding:0px;
 margin:0px;
@@ -554,7 +558,7 @@ margin-left:10px;
 /*vui-about-area*/
 .vui-about-area .box{
 background-color:#fff;
-color:#333;
+color:var(--main-text-color);
 padding:0px;
 margin:0px;
 }
