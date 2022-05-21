@@ -56,7 +56,7 @@ hits: 40,
 offset: offset,
 adult: 1,
 sort: sort,
-category: '01,100025,02,03,0303,09,10,11,12,1301,100021,0602,19,21,22,23,100009,100010,100032',
+category: '01,100025,02,03,0303,09,11,12,1301,100021,0602,19,21,22,23,100009,100010,100032',
 keyword: encodeURI(serverData.keywordNg),
 }
 duga.search(duga_option2,function(data2){
