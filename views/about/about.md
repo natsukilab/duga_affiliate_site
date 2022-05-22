@@ -25,7 +25,9 @@ PWAに対応し、Android・iPhoneで「ホーム画面に追加」していた�
 <span class="material-icons">dns</span>アップデート情報
 =
 
-現在のバージョン：Ver 0.2.7
+現在のバージョン：Ver 0.2.8
+
+Ver 0.2.8 : サイトレイアウト・vui-cssの修正
 
 Ver 0.2.7 : vui-cssをアップグレード&レイアウト修正
 
