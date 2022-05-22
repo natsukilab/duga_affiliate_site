@@ -40,7 +40,7 @@ videos.items.forEach(function(video){
 </div>
 <div class="vui-pagination">
 <% if(page > 1){ %>
-<a class="vui-btn-navi" href="/?sort=<%= sort %>&page=<%= Number(page) - 1 %>">
+<a class="vui-button" href="/?sort=<%= sort %>&page=<%= Number(page) - 1 %>">
 <span class="material-icons left-icon">arrow_back_ios</span>
 前のページ
 </a>
@@ -49,7 +49,7 @@ videos.items.forEach(function(video){
 <% } %>
 <% if(page < max_page){ %>
 <% var next_page = page + 1; %>
-<a class="vui-btn-navi" href="/?sort=<%= sort %>&page=<%= Number(page) + 1 %>">
+<a class="vui-button" href="/?sort=<%= sort %>&page=<%= Number(page) + 1 %>">
 次のページ
 <span class="material-icons right-icon">arrow_forward_ios</span>
 </a>

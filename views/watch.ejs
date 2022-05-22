@@ -49,7 +49,7 @@
 <img class="poster-image" src="<% if(video.items[0].item.jacketimage === undefined){ %><%= video.items[0].item.posterimage[2].large %><% }else{ %><%= video.items[0].item.jacketimage[2].large %><% } %>">
 </div>
 <div class="box2">
-<a class="ad-btn" href="<%= video.items[0].item.affiliateurl %>" target="_blank">
+<a class="vui-button fluid" href="<%= video.items[0].item.affiliateurl %>" target="_blank">
 <span class="material-icons">shopping_cart</span>
 この動画を購入する
 </a>
@@ -113,7 +113,7 @@ DUGAの購入ページへ移動します
 <% } %>
 <div class="vui-divider"></div>
 <div class="vui-player-shopping">
-<a href="<%= video.items[0].item.affiliateurl %>" target="_blank" class="vui-player-shopping-btn">
+<a href="<%= video.items[0].item.affiliateurl %>" target="_blank" class="vui-button">
 <span class="material-icons">shopping_cart</span>
 この動画を購入する
 </a>

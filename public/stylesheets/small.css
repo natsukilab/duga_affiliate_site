@@ -48,7 +48,7 @@ display:flex;
 flex-direction:row;
 justify-content:space-between;
 align-items:center;
-background-color:var(--main-color);
+background-color:var(--main-background-color);
 color:#fff;
 width:100%;
 height:55px;
@@ -171,13 +171,8 @@ left:0;
 width: 100%;
 padding-top: 56.25%;
 }
-.vui-player #player,.vui-player .plyr,.vui-player .plyr .plyr__video-wrapper,.vui-nicoplayer{
-position:absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color:#000;
+.vui-player-ad{
+position:fixed;
 }
 .vui-player-ad .ad .box1{
 width:300px;
@@ -199,7 +194,7 @@ margin-top:0px;
 display:flex;
 justify-content:center;
 align-items:center;
-background-color:var(--main-color);
+background-color:var(--main-background-color);
 color:#fff;
 width:calc(calc(100% - 20px) / 2);
 height:50px;
@@ -218,7 +213,7 @@ margin-top:0px;
 display:flex;
 justify-content:center;
 align-items:center;
-background-color:var(--main-color);
+background-color:var(--main-background-color);
 color:#fff;
 width:80%;
 height:50px;
@@ -251,7 +246,7 @@ display:flex;
 flex-direction: column;
 justify-content:center;
 align-items:center;
-color:var(--main-color);
+color:var(--main-background-color);
 height:60px;
 padding:0px;
 margin:0px;
@@ -311,13 +306,13 @@ flex-direction:row;
 align-items:center;
 background-color:#fff;
 width:100%;
-border:1px var(--main-color) solid;
+border:1px var(--main-background-color) solid;
 padding:0px;
 margin:0px;
 }
 .vui-search-sort .vui-search input{
 background-color:transparent;
-color:var(--main-color);
+color:var(--main-background-color);
 width:100%;
 height:40px;
 border:0;

@@ -1,13 +1,22 @@
 :root {
+--webkit-scrollbar-thumb-background-color:rgba(0,0,0,0.5);
 --ad-background-color:#fff;
 --vui-divider-color:#ddd;
 --vui-sidebar-main-background-color:#fff;
 --vui-sidebar-active-backgroud-color:#f0f0f0;
 --vui-sidebar-hover-backgroud-color:#f0f0f080;
---vui-sidebar-back-background-color:rgba(0,0,0,0.5);
---main-color:#e95295;
---disabled-color:#e9529580;
+--vui-sidebar-back-background-color:rgba(0,0,0,0.7);
+--vui-sidebar-txtIcon-background-color:#e95295;
+--vui-sidebar-txtIcon-text-color:#fff;
+--vui-player-background-color:#000;
+--vui-player-ad-back-background-color:rgba(0,0,0,0.7);
+--main-background-color:#e95295;
 --main-text-color:#333;
+--disabled-color:#e9529580;
+}
+
+.fluid{
+width: 100% !important;
 }
 
 /*a*/
@@ -26,7 +35,7 @@ body::-webkit-scrollbar-corner {
 display: none;
 }
 body::-webkit-scrollbar-thumb {
-background: rgba(0,0,0,0.5);
+background: var(--webkit-scrollbar-thumb-background-color);
 border-radius: 100px;
 border: solid transparent;
 background-clip: content-box;
@@ -35,12 +44,15 @@ border-width: 1px 2px;
 
 /*ad*/
 .ad300{
+display:flex;
+justify-content:center;
+align-items:center;
 background-color:var(--ad-background-color);
 width:300px;
 height:250px;
-overflow:hidden;
 padding:0px;
 margin:0px auto;
+margin-top:20px;
 }
 .ad300 .widget-banner{
 width:300px;
@@ -188,7 +200,7 @@ margin: 1px;
 display: none;
 }
 .vui-sidebar::-webkit-scrollbar-thumb {
-background: rgba(0,0,0,0.5);
+background: var(--webkit-scrollbar-thumb-background-color);
 border-radius: 100px;
 border: solid transparent;
 background-clip: content-box;
@@ -241,8 +253,8 @@ width:25px;
 height:25px;
 border-radius:25px;
 font-size:14px;
-background-color:var(--main-color);
-color:#fff;
+background-color:var(--vui-sidebar-txtIcon-background-color);
+color:var(--vui-sidebar-txtIcon-text-color);
 }
 .vui-sidebar .group .item .labelName{
 display:block;
@@ -254,12 +266,12 @@ padding:0px;
 margin:0px;
 }
 .vui-sidebar .group .item.active .vui-icon{
-color:var(--main-color);
+color:var(--main-background-color);
 }
 .vui-sidebar .divider{
 width:100%;
 height:0px;
-border-top:1px #ddd solid;
+border-top:1px var(--vui-divider-color) solid;
 margin:5px 0px;
 }
 .vui-sidebar-back{
@@ -301,7 +313,7 @@ justify-content:flex-start;
 align-items:center;
 width:100%;
 height:1.5em;
-color:var(--main-color);
+color:var(--main-background-color);
 font-size:25px;
 padding:0px 20px;
 margin:0px;
@@ -314,10 +326,9 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-background-color:#000;
+background-color:var(--vui-player-background-color);
 }
 .vui-player-ad{
-position:absolute;
 top:0;
 left:0;
 display:none;
@@ -325,7 +336,7 @@ justify-content:center;
 align-items:center;
 width:100%;
 height:100%;
-background-color:rgba(0,0,0,0.7);
+background-color:var(--vui-player-ad-back-background-color);
 padding:0px;
 margin:0px;
 z-index:99;
@@ -377,8 +388,8 @@ margin-top:10px;
 display:flex;
 justify-content:center;
 align-items:center;
-background-color:var(--main-color);
-color:#fff;
+background-color:var(--main-background-color);
+color:var(--main-text-color);
 width:100%;
 height:50px;
 border-radius:8px;
@@ -410,7 +421,7 @@ margin-top:20px;
 }
 .vui-player-description a{
 text-decoration:none;
-color:var(--main-color);
+color:var(--main-background-color);
 font-weight:bold;
 }
 .vui-player-description .title{
@@ -419,7 +430,7 @@ justify-content:center;
 align-items:center;
 width:auto;
 height:30px;
-color:var(--main-color);
+color:var(--main-background-color);
 font-weight:bold;
 padding:0px;
 margin:0px;
@@ -455,7 +466,7 @@ justify-content:center;
 align-items:center;
 width:auto;
 height:30px;
-color:var(--main-color);
+color:var(--main-background-color);
 font-weight:bold;
 padding:0px;
 margin:0px;
@@ -490,7 +501,7 @@ justify-content:center;
 align-items:center;
 width:auto;
 height:30px;
-color:var(--main-color);
+color:var(--main-background-color);
 font-weight:bold;
 padding:0px;
 margin:0px;
@@ -547,8 +558,8 @@ margin-top:20px;
 display:flex;
 justify-content:center;
 align-items:center;
-background-color:var(--main-color);
-color:#fff;
+background-color:var(--main-background-color);
+color:var(--main-text-color);
 text-decoration:none;
 border-radius:8px;
 padding:10px 20px;
@@ -572,7 +583,7 @@ margin:0px;
 display:flex;
 justify-content:flex-start;
 align-items:center;
-color:var(--main-color);
+color:var(--main-background-color);
 font-size:25px;
 font-weight:bold;
 border-bottom:1px #ddd solid;
@@ -592,7 +603,7 @@ margin:0px;
 line-height:2.5em;
 }
 .vui-about-area .box1 a{
-color:var(--main-color);
+color:var(--main-background-color);
 text-decoration:none;
 font-weight:bold;
 }
@@ -604,22 +615,22 @@ flex-direction:row;
 justify-content:center;
 align-items:center;
 background-color:transparent;
-background-color:var(--main-color);
-color:#fff;
+color:#ddd;
 width:40px;
 height:40px;
 border:0;
 outline:none;
+cursor:pointer;
 padding:0px;
 margin:0px;
 margin-left:10px;
 }
 .vui-search-sort .vui-sort{
-color:var(--main-color);
+color:var(--main-background-color);
 background-color:#fff;
 height:30px;
 outline:none;
-border:1px var(--main-color) solid;
+border:1px var(--main-background-color) solid;
 padding:0px 10px;
 margin:0px;
 margin-top:10px;
@@ -644,8 +655,8 @@ display:flex;
 flex-direction:row;
 justify-content:center;
 align-items:center;
-background-color:var(--main-color);
-color:#fff;
+background-color:var(--main-background-color);
+color:var(--main-text-color);
 width:calc(100% / 3);
 height:50px;
 padding:0px;
@@ -665,4 +676,97 @@ color:#fff;
 }
 .vui-social .button span{
 font-size:20px;
+}
+
+.vui-age-main{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+width:100%;
+height:100%;
+background-color:#333;
+color:#fff;
+padding:0px;
+margin:0px;
+}
+.vui-age-main h1{
+padding:0px;
+margin:0px;
+}
+.vui-age-main p{
+text-align:center;
+padding:0px;
+margin:15px 0px;
+}
+
+/*grid*/
+.vui-grid{
+position:relative;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+padding:0px;
+margin:0px;
+}
+.vui-grid .one-column{
+width:100%;
+}
+.vui-grid .two-column{
+width:calc((((100% - 220px) / 12) * 2) + 20px);
+}
+.vui-grid .three-column{
+width:calc((((100% - 220px) / 12) * 3) + 40px);
+}
+.vui-grid .four-column{
+width:calc((((100% - 220px) / 12) * 4) + 60px);
+}
+.vui-grid .five-column{
+width:calc((((100% - 220px) / 12) * 5) + 80px);
+}
+.vui-grid .six-column{
+width:calc((((100% - 220px) / 12) * 6) + 100px);
+}
+.vui-grid .seven-column{
+width:calc((((100% - 220px) / 12) * 7) + 120px);
+}
+.vui-grid .eight-column{
+width:calc((((100% - 220px) / 12) * 8) + 140px);
+}
+.vui-grid .nine-column{
+width:calc((((100% - 220px) / 12) * 9) + 160px);
+}
+.vui-grid .ten-column{
+width:calc((((100% - 220px) / 12) * 10) + 180px);
+}
+.vui-grid .eleven-column{
+width:calc((((100% - 220px) / 12) * 11) + 200px);
+}
+.vui-grid .twelve-column{
+width:calc((((100% - 220px) / 12) * 12) + 220px);
+}
+
+/*button*/
+.vui-button{
+display:inline-flex;
+justify-content:center;
+align-items:center;
+background-color:var(--main-background-color);
+height:50px;
+color:#fff;
+border:0px;
+border-radius:8px;
+padding:5px 15px;
+margin:0px;
+box-sizing:border-box;
+}
+.vui-button.danger{
+background-color:#c53d43;
+color:#fff;
+}
+.vui-button .material-icons{
+margin-right:5px;
+}
+.vui-button.mt{
+margin-top:15px;
 }
