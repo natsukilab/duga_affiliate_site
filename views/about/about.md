@@ -25,7 +25,9 @@ PWAに対応し、Android・iPhoneで「ホーム画面に追加」していた�
 <span class="material-icons">dns</span>アップデート情報
 =
 
-現在のバージョン：Ver 0.2.8
+現在のバージョン：Ver 0.2.9
+
+Ver 0.2.9 : 年齢確認ページの修正
 
 Ver 0.2.8 : サイトレイアウト・vui-cssの修正
 
