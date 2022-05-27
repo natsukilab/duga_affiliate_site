@@ -67,17 +67,6 @@ DUGAの購入ページへ移動します
 </div>
 <div class="grid2">
 <h1 class="vui-player-title"><%= video.items[0].item.title %></h1>
-<div class="vui-social">
-<a href="https://twitter.com/share?text=<%= video.items[0].item.title %>&amp;url=<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button twitter">
-<span class="icon-twitter"></span>
-</a>
-<a href="https://social-plugins.line.me/lineit/share?url=<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button line">
-<span class="icon-line"></span>
-</a> 
-<a href="http://b.hatena.ne.jp/entry/<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button hatena">
-<span class="icon-hatenabookmark"></span>
-</a>
-</div>
 <div class="vui-player-description">
 <span class="title">
 <span class="material-icons">info</span>
@@ -85,6 +74,13 @@ DUGAの購入ページへ移動します
 </span>
 <%- video.items[0].item.caption.replace(/\n/g, '<br>' )%>
 </div>
+<div class="vui-player-description">
+    <span class="title">
+    <span class="material-icons">info</span>
+    レーベル
+    </span>
+    <a class="vui-button" href="/label/<%- video.items[0].item.label[0].id%>"><%- video.items[0].item.label[0].name%></a>
+    </div>
 <div class="vui-thumbnails-box">
 <span class="title">
 <span class="material-icons">collections</span>
@@ -106,11 +102,22 @@ DUGAの購入ページへ移動します
 </span>
 <div class="vui-cast">
 <% video.items[0].item.performer.forEach(function(cast){ %>
-<a class="cast" href="/cast/<%= cast.data.id %>/<%= cast.data.name %>"><%= cast.data.name %></a>
+<a class="cast" href="/cast/<%= cast.data.id %>"><%= cast.data.name %></a>
 <% }) %>
 </div>
 </div>
 <% } %>
+<div class="vui-social">
+    <a href="https://twitter.com/share?text=<%= video.items[0].item.title %>&amp;url=<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button twitter">
+    <span class="icon-twitter"></span>
+    </a>
+    <a href="https://social-plugins.line.me/lineit/share?url=<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button line">
+    <span class="icon-line"></span>
+    </a> 
+    <a href="http://b.hatena.ne.jp/entry/<%= conf.app.url %>watch/<%= video.items[0].item.productid %>" target="_blank" class="button hatena">
+    <span class="icon-hatenabookmark"></span>
+    </a>
+    </div>
 <div class="vui-divider"></div>
 <div class="vui-player-shopping">
 <a href="<%= video.items[0].item.affiliateurl %>" target="_blank" class="vui-button">

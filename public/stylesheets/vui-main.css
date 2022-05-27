@@ -308,12 +308,9 @@ color:var(--main-text-color);
 
 /*vui-player-grid*/
 .vui-player-title{
-display:flex;
-justify-content:flex-start;
-align-items:center;
 width:100%;
 line-height:1.5em;
-color:var(--main-background-color);
+color:var(--main-text-color);
 font-size:25px;
 padding:0px 20px;
 margin:0px;
@@ -645,7 +642,7 @@ align-items:center;
 width:100%;
 height:50px;
 font-size:13px;
-padding:0px;
+padding:0px 20px;
 margin:0px;
 margin-top:20px;
 box-sizing:border-box;
@@ -751,9 +748,9 @@ width:calc((((100% - 220px) / 12) * 12) + 220px);
 display:inline-flex;
 justify-content:center;
 align-items:center;
-background-color:var(--main-background-color);
+background-color:var(--main-background-color)!important;
 height:50px;
-color:#fff;
+color: #fff !important;
 border:0px;
 border-radius:8px;
 padding:5px 15px;
@@ -761,8 +758,8 @@ margin:0px;
 box-sizing:border-box;
 }
 .vui-button.danger{
-background-color:#c53d43;
-color:#fff;
+background-color:#c53d43!important;
+color:#fff!important;
 }
 .vui-button .material-icons{
 margin-right:5px;

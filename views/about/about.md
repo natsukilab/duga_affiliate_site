@@ -25,7 +25,9 @@ PWAに対応し、Android・iPhoneで「ホーム画面に追加」していた�
 <span class="material-icons">dns</span>アップデート情報
 =
 
-現在のバージョン：Ver 0.2.9
+現在のバージョン：Ver 0.3.0
+
+Ver 0.3.0 : オリジナルnpmライブラリ「duga-search」の機能追加・適用 / レイアウト一部変更
 
 Ver 0.2.9 : 年齢確認ページの修正
 

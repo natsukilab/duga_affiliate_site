@@ -201,13 +201,13 @@ display:flex;
 flex-direction:row;
 align-items:center;
 background-color:#fff;
-border:1px var(--main-background-color) solid;
+border:1px #ddd solid;
 padding:0px;
 margin:0px;
 }
 .vui-search-sort .vui-search input{
 background-color:transparent;
-color:var(--main-background-color);
+color:#333;
 width:30em;
 height:40px;
 border:0;
