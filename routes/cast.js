@@ -8,8 +8,6 @@ const serverConfPath = path.join(process.cwd(), 'config', 'server.yml');
 const serverData = yaml.load(fs.readFileSync(serverConfPath, 'utf-8'));
 const appConfPath = path.join(process.cwd(), 'config', 'default.yml');
 const conf = yaml.load(fs.readFileSync(appConfPath, 'utf-8'));
-const castConfPath = path.join(process.cwd(), 'config', 'cast.yml');
-const casts = yaml.load(fs.readFileSync(castConfPath, 'utf-8'));
 //DUGA動画検索
 var DugaSearch = require("duga-search");
 var duga_api = {
